@@ -1,0 +1,48 @@
+@import 'variables';
+
+html {
+  font-size: 100%;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+a,
+a:visited,
+a:hover {
+  text-decoration: none;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Open Sans', sans-serif;
+  font-size: $font-med;
+
+  &.menu-open {
+    overflow: hidden;
+  }
+}
+
+.overlay {
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  position: absolute;
+  background: #f8f9fa url('/dist/images/bg.svg');
+  animation: all ease 3.3ms;
+  clip-path: circle(30px at calc(100vw - 40px) calc(40px));
+  transition: all 0.4s ease;
+
+  @media (min-width: 768px) {
+    display: none;
+  }
+
+  body.menu-open & {
+    clip-path: circle(100%);
+  }
+}
